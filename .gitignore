@@ -131,3 +131,5 @@ dmypy.json
 information-viewer.code-workspace
 server_volumes/ssl/certs/*.crt
 server_volumes/ssl/private/*.key
+
+.vscode

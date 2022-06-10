@@ -1,0 +1,6 @@
+FROM mysql:8.0.29
+
+ENV MYSQL_ROOT_PASSWORD root
+ENV MYSQL_DATABASE application_db
+ENV MYSQL_USER application_db
+ENV MYSQL_PASSWORD docker

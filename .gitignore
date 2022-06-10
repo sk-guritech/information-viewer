@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+information-viewer.code-workspace
+server_volumes/ssl/certs/*.crt
+server_volumes/ssl/private/*.key

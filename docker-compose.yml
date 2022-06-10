@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+    web:
+        container_name: web
+        build: 
+          context: ./server_settings/web
+        depends_on:
+          - app
+        restart: always
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ./server_volumes/ssl/certs/:/etc/pki/tls/certs/:ro
+          - ./server_volumes/ssl/private/:/etc/pki/tls/private/:ro
+          - ./server_volumes/gunicorn_socket:/tmp/gunicorn_socket
+
+    app:
+        container_name: app
+        build: 
+          context: ./server_settings/app
+        depends_on:
+          - db
+        restart: always
+        volumes:
+          - ./app:/var/app:ro
+          - ./server_volumes/gunicorn_socket:/tmp/gunicorn_socket
+
+    db:
+      container_name: db
+      build: 
+        context: ./server_settings/db
+      ports:
+          - "3306:3306"

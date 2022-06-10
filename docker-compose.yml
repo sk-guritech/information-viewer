@@ -24,7 +24,7 @@ services:
           - db
         restart: always
         volumes:
-          - ./app:/var/app:ro
+          - ./app:/var/app
           - ./server_volumes/gunicorn_socket:/tmp/gunicorn_socket
 
     db:

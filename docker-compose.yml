@@ -33,3 +33,8 @@ services:
         context: ./server_settings/db
       ports:
           - "3306:3306"
+
+    redis:
+      container_name: redis
+      build:
+        context: ./server_settings/redis
